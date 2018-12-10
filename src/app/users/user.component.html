@@ -1,0 +1,27 @@
+
+<div class="container">
+<h1 class="text-center text-primary">
+{{ title }}
+</h1>
+
+<ul class="list-unstyled">
+<li class="well">
+    <app-user-img [imgpath]="user.image" [user]="user" [title]="title"></app-user-img>
+    <!-- <img [src]="user.image">
+    <button (click)="moreInfo(user.firstName, user.company)" >More Info</button> -->
+
+    <app-user-info [user]= "user"></app-user-info>
+
+    <!-- <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+    <p>Income  : <span [innerHTML]= "user.income"></span></p>
+    <p>Date of Birth :  {{ user.dob }} </p>
+    <em>
+        Total Votes : {{ user.votes}}
+        <input type="number" 
+            [value] = "user.votes"
+            (change) = "user.votes =  $event.target.value">
+        <input type="number" [(ngModel)]="user.votes" >
+    </em> -->
+</li>
+</ul>
+</div>
