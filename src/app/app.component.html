@@ -2,6 +2,15 @@
   <h2>Hello World!</h2>
 </div>
 
+
+<button (click)="ontoggle()">Toggle</button>
+<div class="container" *ngIf="toggle">
+  <input type="text" [(ngModel)]="title">
+  <app-life-cycle-demo [title]="title"></app-life-cycle-demo>
+</div> 
+
+<!-- <app-life-cycle-demo [title]="title"></app-life-cycle-demo> -->
+
 <div>
   <app-users></app-users>
 </div>

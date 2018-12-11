@@ -1,5 +1,5 @@
 import { USER_DATA } from './../model/mocks';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../model/user.model';
 
 @Component({
@@ -7,17 +7,18 @@ import { IUser } from '../model/user.model';
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.css']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit{
     title: string = "Hello World!";
-    user : IUser;
+    users: IUser[];
 
-    constructor(){
-        this.user = USER_DATA;
+    constructor() {}
+    
+    ngOnInit() {
+        this.users = USER_DATA;
     }
-
-    moreInfo(user : IUser) {
+    moreInfo(user: IUser) {
         alert(`Mr. ${user.firstName} is working with ${user.company}!!!`);
     }
 
-   
+
 }

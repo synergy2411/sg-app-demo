@@ -4,13 +4,16 @@
     </h1>
 
     <ul class="list-unstyled">
-        <li class="well">
+        <li class="well" *ngFor="let user of users">
             <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <app-user-img [imgpath]="user.image" [user]="user" [title]="title" (childEvent)="moreInfo($event)"></app-user-img>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                    <app-user-info [user]="user"></app-user-info>
+                    <app-user-info [user]="user">
+                        <p class="para1"> This is projected content!</p>
+                        <a href="#"> {{ title }}</a>
+                    </app-user-info>
                 </div>
             </div>
 
