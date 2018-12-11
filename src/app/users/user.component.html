@@ -1,18 +1,25 @@
-
 <div class="container">
-<h1 class="text-center text-primary">
-{{ title }}
-</h1>
+    <h1 class="text-center text-primary">
+        {{ title }}
+    </h1>
 
-<ul class="list-unstyled">
-<li class="well">
-    <app-user-img [imgpath]="user.image" [user]="user" [title]="title"></app-user-img>
-    <!-- <img [src]="user.image">
+    <ul class="list-unstyled">
+        <li class="well">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <app-user-img [imgpath]="user.image" [user]="user" [title]="title" (childEvent)="moreInfo($event)"></app-user-img>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <app-user-info [user]="user"></app-user-info>
+                </div>
+            </div>
+
+            <!-- <img [src]="user.image">
     <button (click)="moreInfo(user.firstName, user.company)" >More Info</button> -->
 
-    <app-user-info [user]= "user"></app-user-info>
 
-    <!-- <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+
+            <!-- <h2>{{ user.firstName }} {{ user.lastName }}</h2>
     <p>Income  : <span [innerHTML]= "user.income"></span></p>
     <p>Date of Birth :  {{ user.dob }} </p>
     <em>
@@ -22,6 +29,6 @@
             (change) = "user.votes =  $event.target.value">
         <input type="number" [(ngModel)]="user.votes" >
     </em> -->
-</li>
-</ul>
+        </li>
+    </ul>
 </div>

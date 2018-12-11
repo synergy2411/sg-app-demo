@@ -1,4 +1,6 @@
+import { USER_DATA } from './../model/mocks';
 import { Component } from '@angular/core';
+import { IUser } from '../model/user.model';
 
 @Component({
     selector: 'app-users',
@@ -7,19 +9,15 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent {
     title: string = "Hello World!";
+    user : IUser;
 
-    // moreInfo(fname: string, company: string) {
-    //     alert(`Mr. ${fname} is working with ${company}!!!`);
-    // }
-
-    user = {
-        firstName: "Bill",
-        lastName: "Gates",
-        income: 50000,
-        dob: new Date("Dec 21, 1965"),
-        isWorking: true,
-        company: "Microsoft",
-        image: "assets/images/bill.jpg",
-        votes: 120
+    constructor(){
+        this.user = USER_DATA;
     }
+
+    moreInfo(user : IUser) {
+        alert(`Mr. ${user.firstName} is working with ${user.company}!!!`);
+    }
+
+   
 }

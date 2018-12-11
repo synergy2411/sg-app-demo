@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { IUser } from '../../model/user.model';
 
 @Component({
   selector: 'app-user-img',
@@ -8,13 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserImgComponent{
 
-  @Input('user') user : any;
+  @Input('user') user : IUser;
   @Input('imgpath') imgpath : any;
   @Input('title') title : string;
+  @Output('childEvent') childEvent = new EventEmitter<IUser>();
 
-  moreInfo(fname: string, company: string) {
-    alert(`Mr. ${fname} is working with ${company}!!!`);
+  onMoreInfo(){
+    this.childEvent.emit(this.user);
   }
+
+  // moreInfo(fname: string, company: string) {
+  //   alert(`Mr. ${fname} is working with ${company}!!!`);
+  // }
   
 
 }
