@@ -1,9 +1,41 @@
-<h2>{{ user.firstName }} {{ user.lastName }}</h2>
+<h2 appHighlight [defaultColor]="'yellow'">{{ user.firstName }} {{ user.lastName }}</h2>
 
 <ng-content select=".para1"></ng-content>
 
-<p>Income : <span [innerHTML]="user.income"></span></p>
-<p>Date of Birth : {{ user.dob }} </p>
+<!-- <p *ngIf="user.isWorking === true; else ElseTemplate">
+    Income : <span [innerHTML]="user.income"></span></p> -->
+
+<p *appUnless="user.isWorking === true">
+  Income : {{ user.income }}
+</p>
+
+<!-- <p *appUnless="user.isWorking === true; else ElseTemplate">
+  Income : {{ user.income }}
+</p> -->
+
+<!-- <ng-template [appUnless]="user.isWorking">
+  <p>
+    income : {{ user.income }}
+  </p>
+</ng-template> -->
+
+<!-- 
+  Desugar *ngIf Syntax
+  <ng-template [ngIf]="user.isWorking">
+  <p>Income : <span [innerHTML]="user.income"></span></p>
+</ng-template> -->
+
+<!-- <p [ngClass]="[border, feature]">Date of Birth : {{ user.dob }} </p> -->
+<!-- <p [ngClass]="{'border' : true, 'feature' : false}">Date of Birth : {{ user.dob }} </p> -->
+
+<!-- <p [ngClass]="myClass">Date of Birth : {{ user.dob }} </p> -->
+<button (click)="onToggle()" class="btn btn-default">Toggle</button>
+
+
+<p [ngStyle]="myStyle">Date of Birth : {{ user.dob }} </p>
+
+
+
 <em>
   Total Votes : {{ user.votes}}
   <input type="number" [value]="user.votes" (change)="user.votes =  $event.target.value">
@@ -11,3 +43,23 @@
 </em>
 
 <ng-content select="a"></ng-content>
+
+<ng-template #ElseTemplate>
+  <p>{{user.firstName }} is not working now!</p>
+</ng-template>
+
+
+<!-- <div [ngSwitch]="num1">
+  <div *ngSwitchCase="'1'"> Output 1</div>
+  <div *ngSwitchCase="'2'"> Output 2</div>
+  <div *ngSwitchCase="'3'"> Output 3</div>
+  <div *ngSwitchDefault> Default Output</div>
+</div>  -->
+
+<!-- 
+<div ngSwitch="num1">
+  <div *ngSwitchCase="'num0'"> Output 1</div>
+  <div *ngSwitchCase="'num1'"> Output 2</div>
+  <div *ngSwitchCase="'num2'"> Output 3</div>
+  <div *ngSwitchDefault> Default Output</div>
+</div> -->
