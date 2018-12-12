@@ -20,8 +20,13 @@ export class UsersComponent implements OnInit{
     ngOnInit() {
         // this.users = USER_DATA;
         // this.users = this.dataService.getUserData();
-        this.dataService.getHttpUserData()
-            .subscribe(usersData => this.users = usersData);
+        // this.dataService.getHttpUserData()
+        //     .subscribe(usersData => this.users = usersData);
+        this.dataService.getHttpClientUserData()
+            .subscribe(
+                res => this.users = <IUser[]> res,
+                err=>console.log(err),
+                ()=>console.log("COMPLETED!"));
     }
     moreInfo(user: IUser) {
         alert(`Mr. ${user.firstName} is working with ${user.company}!!!`);

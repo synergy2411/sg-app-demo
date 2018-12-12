@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -24,7 +25,7 @@ export class RegisterComponent {
     return hasExcl ? null : { "needExclamation": true }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService : AuthService) {
     this.registerForm = this.fb.group({
       username: this.username1,
       password: this.password1
@@ -34,6 +35,12 @@ export class RegisterComponent {
   register() {
     console.log("Username : " + this.registerForm.value.username);
     console.log("Password : " + this.registerForm.value.password);
+    this.authService.registerUser(
+        this.registerForm.value.username,
+        this.registerForm.value.password
+    );
+        this.username1 = new FormControl('');
+        this.password1 = new FormControl('');
   }
 
 }

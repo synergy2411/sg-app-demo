@@ -1,0 +1,9 @@
+<h3>
+  Observable Data : {{ obsData | async }} <br>
+  Subscribed Data : {{ data }}
+</h3>
+
+<button class="btn btn-primary" 
+  (click)="onSubscribe()">Subscribe</button>
+<button class="btn btn-primary" 
+  (click)="onUnsubscribe()">Unsubscribe</button>
