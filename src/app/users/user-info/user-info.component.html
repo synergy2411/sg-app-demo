@@ -1,13 +1,24 @@
-<h2 appHighlight [defaultColor]="'yellow'">{{ user.firstName }} {{ user.lastName }}</h2>
+
+
+
+Counter in Users Info : {{ dataService.counter }}
+<button class="btn btn-default" (click)="increase()">Increase</button>
+
+<!-- {{ user | json }} -->
+
+<h2 appHighlight [defaultColor]="'yellow'">
+  {{ user.firstName | uppercase }} {{ user.lastName | uppercase }}</h2>
 
 <ng-content select=".para1"></ng-content>
 
+<p *ngIf="user.isWorking === true; else ElseTemplate">
+    Income : <span [innerHTML]="user.income | currency : 'EUR'"></span></p>
 <!-- <p *ngIf="user.isWorking === true; else ElseTemplate">
-    Income : <span [innerHTML]="user.income"></span></p> -->
+    Income : <span [innerHTML]="user.income | currency : 'INR'"></span></p> -->
 
-<p *appUnless="user.isWorking === true">
-  Income : {{ user.income }}
-</p>
+<!-- <p *appUnless="!user.isWorking === true">
+  Income : {{ user.income | currency : 'INR' }}
+</p> -->
 
 <!-- <p *appUnless="user.isWorking === true; else ElseTemplate">
   Income : {{ user.income }}
@@ -32,7 +43,7 @@
 <button (click)="onToggle()" class="btn btn-default">Toggle</button>
 
 
-<p [ngStyle]="myStyle">Date of Birth : {{ user.dob }} </p>
+<p [ngStyle]="myStyle">Date of Birth : {{ user.dob | date : 'dd-MMM-yyyy' }} </p>
 
 
 

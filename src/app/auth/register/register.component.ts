@@ -19,9 +19,9 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
 
-  hasExclamationMark(input : FormControl){
+  hasExclamationMark(input: FormControl) {
     const hasExcl = input.value.indexOf('!') >= 0;
-    return hasExcl ? null : { "needExclamation" : true}
+    return hasExcl ? null : { "needExclamation": true }
   }
 
   constructor(private fb: FormBuilder) {

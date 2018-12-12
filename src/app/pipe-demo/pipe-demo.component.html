@@ -1,0 +1,40 @@
+<!-- <input type="text" [(ngModel)]="filteredStatus"> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <label for="tasks">Select option : </label>
+      <select [(ngModel)]="filteredStatus" class="form-control">
+        <option value="done">Done Tasks</option>
+        <option value="pending">Pending Tasks</option>
+      </select>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <button 
+        (click)="addNewTodo()"
+        class="btn btn-default btn-block">Add New Todo</button>
+    </div>
+  </div>
+
+</div>
+
+<hr><br>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos | filter : filteredStatus : 'status'">
+      {{ todo.label }}
+      <span class="badge"> {{ todo.status }} </span>
+    </li>
+  </ul>
+</div>
+
+
+<hr>
+
+<div class="container">
+  Deayed Date : {{ delayData | async | uppercase }}
+</div>
+
+<div class="container">
+  Contact Number : {{ contact_no | nationalcode }}
+</div>

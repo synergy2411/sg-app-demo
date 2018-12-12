@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
 import { UserImgComponent } from './users/user-img/user-img.component';
@@ -10,6 +13,10 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { NationalCodePipe } from './pipes/national-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -21,14 +28,19 @@ import { RegisterComponent } from './auth/register/register.component';
     HighlightDirective,
     UnlessDirective,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PipeDemoComponent,
+    NationalCodePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ DataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

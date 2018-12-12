@@ -1,7 +1,14 @@
+<!-- {{ users | json }} -->
+
+
 <div class="container">
     <h1 class="text-center text-primary">
-        {{ title }}
+    Counter in Users : {{ dataService.counter }}
+    <button class="btn btn-default" (click)="increase()">Increase</button>
     </h1>
+
+
+
 
     <ul class="list-unstyled">
         <li class="well" *ngFor="let user of users; index as i; first as isFirst; ">
