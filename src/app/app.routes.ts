@@ -1,13 +1,15 @@
-import { ProductComponent } from './product/product.component';
-import { UsersComponent } from './users/user.component';
-import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+
 import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
-import { LoginGaurdService } from './services/login-gaurd.service';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { OverviewComponent } from './product/overview/overview.component';
+import { ProductComponent } from './product/product.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { LoginGaurdService } from './services/login-gaurd.service';
+import { UsersComponent } from './users/user.component';
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
 
 export const APP_ROUTES : Routes = [
     {
@@ -40,6 +42,12 @@ export const APP_ROUTES : Routes = [
             path : "spec",
             component : SpecificationComponent
         }]
+    },{
+        path : 'employee',
+        component : NewEmployeeComponent
+    },{
+        path : "lazy",
+        loadChildren : './lazy/lazy.module#LazyModule'
     },{
         path : "**",                        //http://localhost:4200/nowhere
         redirectTo : "login",

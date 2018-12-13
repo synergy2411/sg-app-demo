@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
@@ -53,11 +54,13 @@ import { SpecificationComponent } from './product/specification/specification.co
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
   providers: [ DataService, 
     AuthService,
     LoginGaurdService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents :   []
 })
 export class AppModule { }
