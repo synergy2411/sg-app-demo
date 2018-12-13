@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -10,6 +11,8 @@ export class AppComponent implements OnInit{
   title = 'app';
   toggle = true;
 
+  constructor(public authService : AuthService){}
+  
   ngOnInit(){
     firebase.initializeApp({
       apiKey: "AIzaSyAnV5RHcOW56J7LAsbLHGagUdq04a-9u6g",
