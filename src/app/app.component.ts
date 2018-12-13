@@ -13,6 +13,10 @@ export class AppComponent implements OnInit{
 
   constructor(public authService : AuthService){}
   
+  onLogout(){
+    this.authService.logout();
+  }
+
   ngOnInit(){
     firebase.initializeApp({
       apiKey: "AIzaSyAnV5RHcOW56J7LAsbLHGagUdq04a-9u6g",

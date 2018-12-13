@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-pipe-demo',
   templateUrl: './pipe-demo.component.html',
   styleUrls: ['./pipe-demo.component.css']
 })
-export class PipeDemoComponent {
+export class PipeDemoComponent implements OnDestroy{
 
+  ngOnDestroy(){
+    console.log("Pipe Demo removed!");
+  }
   addNewTodo(){
     this.todos.push({
       label : "New task",
